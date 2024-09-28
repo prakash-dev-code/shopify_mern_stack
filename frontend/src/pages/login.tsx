@@ -15,8 +15,14 @@ const Login: React.FC = () => {
 
   return (
     <div>
-      <h1 className="text-3xl">Login Page</h1>
-      <button onClick={handleLogin}>Log In</button>
+      <h1 className="text-3xl min-h-[60vh] text-center py-4">Login Page</h1>
+      <div className="text-center mb-4">
+        <button
+          onClick={handleLogin}
+          className="bg-black text-white px-4 py-2 rounded ">
+          Log In
+        </button>
+      </div>
     </div>
   );
 };
