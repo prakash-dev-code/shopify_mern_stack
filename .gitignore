@@ -3,6 +3,12 @@
 # Node modules
 /backend/node_modules
 /frontend/node_modules
+/node_modules
+
+
+#ignore root package files
+/package.json
+/package-lock.json
 
 # Yarn
 /.pnp
