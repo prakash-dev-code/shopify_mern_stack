@@ -6,9 +6,7 @@
 /node_modules
 
 
-#ignore root package files
-/package.json
-/package-lock.json
+
 
 # Yarn
 /.pnp
