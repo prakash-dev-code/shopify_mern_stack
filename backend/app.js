@@ -3,6 +3,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const app = express();
 const globalErrorHandler = require("./controllers/errorController");
+const userRoutes = require("./routes/userRoutes");
 
 // Global middleware
 
@@ -16,6 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+
+// define routes
+app.use("/api/v1/users", userRoutes);
+// define routes
 
 app.use("/", (req, res, next) => {
   res.send("SERVER IS LIVE ");
