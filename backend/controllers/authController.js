@@ -47,3 +47,16 @@ exports.singIn = catchAsync(async function (req, res, next) {
     },
   });
 });
+
+exports.forgetPassword = async function (req, res, next) {
+  const userByEmail = await User.findOne({ email: req.body.email });
+  if (!userByEmail)
+    return next(new appError("no user found with provided email", 404));
+
+  const resetToken = await userByEmail.createResetPasswordToken();
+
+  console.log(resetToken, "reset Token");
+
+  await userByEmail.save({ validateBeforeSave: false });
+};
+exports.resetPassword = function (req, res, next) {};
