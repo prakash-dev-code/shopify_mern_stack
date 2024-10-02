@@ -66,4 +66,13 @@ userSchema.pre(/^find/, function (next) {
   next();
 });
 
+// check password is correct or not
+userSchema.methods.correctPassword = async function (
+  userPassword,
+  userDbPassword
+) {
+  return await bcrypt.compare(userPassword, userDbPassword);
+};
+// check password is correct or not
+
 module.exports = mongoose.model("User", userSchema);
