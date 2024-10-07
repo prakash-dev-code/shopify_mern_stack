@@ -84,11 +84,26 @@ userSchema.methods.createResetPasswordToken = async function () {
     .update(resetToken)
     .digest("hex");
 
-   this.passwordResetExpires = Date.now() + 10 * 60 * 1000; //10 minutes
+  this.passwordResetExpires = Date.now() + 10 * 60 * 1000; //10 minutes
 
   return resetToken;
 };
 
 // create reset password token
+
+// check password change after generated
+userSchema.methods.changePasswordAfter = function (JWTTimestamp) {
+  if (this.passwordChangedAt) {
+    const changeTimeStamp = parseInt(
+      this.passwordChangedAt.getTime() / 1000,
+      10
+    );
+    return JWTTimestamp < changeTimeStamp;
+  }
+
+  // False means NOT changed
+  return false;
+};
+// check password change after generated
 
 module.exports = mongoose.model("User", userSchema);
