@@ -140,7 +140,46 @@ exports.forgetPassword = async function (req, res, next) {
     return next(new appError("Couldn't send email , Try again later.", 500));
   }
 };
-exports.resetPassword = function (req, res, next) {};
+exports.resetPassword = catchAsync(async (req, res, next) => {
+  //1. Get user based on token
+
+  const hashToken = crypto
+    .createHash("sha256")
+    .update(req.params.token)
+    .digest("hex");
+
+  const user = await User.findOne({
+    passwordResetToken: hashToken,
+    passwordResetExpires: { $gt: Date.now() },
+  });
+
+  console.log(hashToken, user, "USER IN AUTH MODULE Reset password");
+
+  //2. if token is not expired then set new password
+  if (!user) {
+    return next(new appError("Token is invalid or expired", 400));
+  }
+
+  user.password = req.body.password;
+  user.confirmPassword = req.body.confirmPassword;
+  user.passwordResetToken = undefined;
+  user.passwordResetExpires = undefined;
+
+  //3. update changePasswordAt property for user
+  await user.save();
+
+  //4.  Log the user in ,send the JWT token
+
+  const token = jwtToken(user._id);
+
+  res.status(201).json({
+    status: "success",
+    token,
+    data: {
+      user: user,
+    },
+  });
+});
 
 exports.changePassword = catchAsync(async (req, res, next) => {
   //1 Get user from collection
