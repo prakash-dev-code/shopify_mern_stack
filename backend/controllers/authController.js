@@ -114,8 +114,6 @@ exports.forgetPassword = async function (req, res, next) {
 
   const resetToken = await userByEmail.createResetPasswordToken();
 
-  console.log(resetToken, "reset Token");
-
   await userByEmail.save({ validateBeforeSave: false });
   const resetURL = `${req.protocol}://${req.get(
     "host"
@@ -152,8 +150,6 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     passwordResetToken: hashToken,
     passwordResetExpires: { $gt: Date.now() },
   });
-
-  console.log(hashToken, user, "USER IN AUTH MODULE Reset password");
 
   //2. if token is not expired then set new password
   if (!user) {
@@ -208,3 +204,17 @@ exports.changePassword = catchAsync(async (req, res, next) => {
 
   //4. log user and send JWT token
 });
+
+// authorized some role to delete a tour
+
+exports.ristrictTour = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new appError("You are not authorized to perform this action", 403)
+      );
+    }
+    next();
+  };
+};
+// authorized some role to delete a tour

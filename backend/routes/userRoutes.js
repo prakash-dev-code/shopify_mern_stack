@@ -12,4 +12,12 @@ userRouter
   .route("/change-password")
   .patch(authController.protect, authController.changePassword);
 
+userRouter.route("/").get(userController.getAllUsers);
+
+userRouter
+  .route("/:id")
+  .get(userController.getUser)
+  .patch(userController.updateUser)
+  .delete(userController.deleteUser);
+
 module.exports = userRouter;
