@@ -10,15 +10,14 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { Divider, ListItemIcon, styled } from "@mui/material";
+import { RiShoppingBagFill, RiShoppingCartFill } from "react-icons/ri";
+import { Badge, Divider, ListItemIcon, styled } from "@mui/material";
 import { Logout, PersonAdd, Settings } from "@mui/icons-material";
 // import styled from "@mui/material/styles/styled";
 import Menu, { MenuProps } from "@mui/material/Menu";
-import EditIcon from "@mui/icons-material/Edit";
-import ArchiveIcon from "@mui/icons-material/Archive";
-import FileCopyIcon from "@mui/icons-material/FileCopy";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { FiPhoneCall } from "react-icons/fi";
 
 // Styled Menu Component
 const StyledMenu = styled((props: MenuProps) => (
@@ -92,7 +91,8 @@ const Navbar = () => {
             aria-controls={anchorElOptions ? "demo-customized-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={anchorElOptions ? "true" : undefined}
-            variant="contained"
+            // variant="contained"
+            color="inherit"
             disableElevation
             onClick={handleOpenOptionsMenu}
             endIcon={<KeyboardArrowDownIcon />}>
@@ -107,21 +107,16 @@ const Navbar = () => {
             open={Boolean(anchorElOptions)}
             onClose={handleCloseOptionsMenu}>
             <MenuItem onClick={handleCloseOptionsMenu} disableRipple>
-              <EditIcon />
-              Edit
+              France (EUR €)
             </MenuItem>
             <MenuItem onClick={handleCloseOptionsMenu} disableRipple>
-              <FileCopyIcon />
-              Duplicate
-            </MenuItem>
-            <Divider sx={{ my: 0.5 }} />
-            <MenuItem onClick={handleCloseOptionsMenu} disableRipple>
-              <ArchiveIcon />
-              Archive
+              Russia (RUB ₽)
             </MenuItem>
             <MenuItem onClick={handleCloseOptionsMenu} disableRipple>
-              <MoreHorizIcon />
-              More
+              Saudi Arabia (SAR ر.س)
+            </MenuItem>
+            <MenuItem onClick={handleCloseOptionsMenu} disableRipple>
+              Spain (EUR €)
             </MenuItem>
           </StyledMenu>
 
@@ -204,26 +199,78 @@ const Navbar = () => {
       </div>
 
       {/* Navbar */}
-      <AppBar position="static">
+      <AppBar position="sticky" className="bg-white">
         <Container maxWidth="xl">
-          <Toolbar disableGutters className="min-h-[57px]">
-            <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 600,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}>
-              MERNCart
-            </Typography>
+          <Toolbar
+            disableGutters
+            className="min-h-[90px] flex flex-row justify-between items-center text-black ">
+            <div className="flex flex-row justify-center items-center">
+              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                href="#app-bar-with-responsive-menu"
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 600,
+                  letterSpacing: ".2rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                  fontSize: 20,
+                }}>
+                MERNCart
+              </Typography>
+            </div>
+            <div>
+              <div className="  flex items-center justify-center">
+                <div className="flex border-2 border-gray-300   rounded-full overflow-hidden">
+                  <input
+                    type="text"
+                    placeholder="Search for items..."
+                    className="px-4 py-[10px] w-[500px] text-base  outline-none text-gray-700"
+                  />
+                  <button className="bg-black text-white px-6 py-2 rounded-full">
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="flex items-center space-x-6 py-4 px-6 border-b border-gray-200">
+                {/* Help Section */}
+                <div className="flex items-center space-x-2">
+                  <FiPhoneCall className="text-gray-500" size={24} />
+                  <div>
+                    <p className="text-sm text-gray-500">Need Help?</p>
+                    <p className="text-lg font-semibold text-blue-700">
+                      +01 123 456 789
+                    </p>
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <Divider orientation="vertical" flexItem />
+
+                {/* Cart Section */}
+                <div className="flex items-center space-x-2">
+                  <RiShoppingCartFill className="text-gray-500" size={24} />
+                  <Badge
+                    badgeContent={4} // Cart item count
+                    color="success"
+                    className="text-sm text-white bg-green-500">
+                    <p className="text-sm text-gray-500">Cart</p>
+                  </Badge>
+                  <p className="text-lg font-semibold text-blue-700">
+                    py64.800,00
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* mobile responsive menu is started from here  */}
 
             <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
             <Typography
