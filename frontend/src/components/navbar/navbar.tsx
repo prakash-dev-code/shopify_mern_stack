@@ -239,13 +239,13 @@ const Navbar = () => {
               </div>
             </div>
             <div>
-              <div className="flex items-center space-x-6 py-4 px-6 border-b border-gray-200">
+              <div className="flex items-center space-x-6 py-4 px-6">
                 {/* Help Section */}
                 <div className="flex items-center space-x-2">
                   <FiPhoneCall className="text-gray-500" size={24} />
                   <div>
                     <p className="text-sm text-gray-500">Need Help?</p>
-                    <p className="text-lg font-semibold text-blue-700">
+                    <p className="text-lg font-medium text-gray">
                       +01 123 456 789
                     </p>
                   </div>
@@ -256,16 +256,19 @@ const Navbar = () => {
 
                 {/* Cart Section */}
                 <div className="flex items-center space-x-2">
-                  <RiShoppingCartFill className="text-gray-500" size={24} />
-                  <Badge
-                    badgeContent={4} // Cart item count
-                    color="success"
-                    className="text-sm text-white bg-green-500">
+                  <div className="relative">
+                    <RiShoppingCartFill className="text-gray-500" size={24} />
+                    <Badge
+                      badgeContent={2} // Cart item count
+                      color="success"
+                      className="absolute -top-1   -right-12 text-sm text-white">
+                      {/* Empty content to position badge */}
+                    </Badge>
+                  </div>
+                  <div className="flex flex-col gap-0">
                     <p className="text-sm text-gray-500">Cart</p>
-                  </Badge>
-                  <p className="text-lg font-semibold text-blue-700">
-                    py64.800,00
-                  </p>
+                    <p className="text-lg font-semibold text-blue-700">$0.00</p>
+                  </div>
                 </div>
               </div>
             </div>
