@@ -5,13 +5,11 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+
 import { RiShoppingBagFill, RiShoppingCartFill } from "react-icons/ri";
-import { Badge, Divider, ListItemIcon, styled } from "@mui/material";
+import AdbIcon from "@mui/icons-material/Adb";
+
+import { Avatar, Badge, Button, Divider, ListItemIcon, MenuItem, styled, Tooltip } from "@mui/material";
 import { Logout, PersonAdd, Settings } from "@mui/icons-material";
 // import styled from "@mui/material/styles/styled";
 import Menu, { MenuProps } from "@mui/material/Menu";
@@ -294,8 +292,160 @@ const Navbar = () => {
               LOGO
             </Typography>
           </Toolbar>
+
+         
         </Container>
       </AppBar>
+
+      {/* hover menu  */}
+
+      <AppBar position="sticky" className="bg-white">
+        <Container maxWidth="xl">
+          <Toolbar
+            disableGutters
+            className="min-h-[90px] flex flex-row justify-between items-center text-black ">
+            <div className="flex flex-row justify-center items-center">
+              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                href="#app-bar-with-responsive-menu"
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 600,
+                  letterSpacing: ".2rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                  fontSize: 20,
+                }}>
+                MERNCart
+              </Typography>
+            </div>
+
+            <div className="flex flex-row justify-center items-center">
+              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                href="#app-bar-with-responsive-menu"
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 600,
+                  letterSpacing: ".2rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                  fontSize: 20,
+                }}>
+                MERNCart
+              </Typography>
+            </div>
+
+            <div className="flex flex-row justify-center items-center">
+              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                href="#app-bar-with-responsive-menu"
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 600,
+                  letterSpacing: ".2rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                  fontSize: 20,
+                }}>
+                MERNCart
+              </Typography>
+            </div>
+
+            <div className="flex flex-row justify-center items-center">
+              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                href="#app-bar-with-responsive-menu"
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 600,
+                  letterSpacing: ".2rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                  fontSize: 20,
+                }}>
+                MERNCart
+              </Typography>
+            </div>
+
+            <div className="flex flex-row justify-center items-center">
+              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                href="#app-bar-with-responsive-menu"
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 600,
+                  letterSpacing: ".2rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                  fontSize: 20,
+                }}>
+                MERNCart
+              </Typography>
+            </div>
+
+            <div className="flex flex-row justify-center items-center">
+              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                href="#app-bar-with-responsive-menu"
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 600,
+                  letterSpacing: ".2rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                  fontSize: 20,
+                }}>
+                MERNCart
+              </Typography>
+            </div>
+          
+            <div>
+            
+            </div>
+
+            {/* mobile responsive menu is started from here  */}
+
+           
+          </Toolbar>
+
+         
+        </Container>
+      </AppBar>
+
+      
+
+
     </div>
   );
 };
