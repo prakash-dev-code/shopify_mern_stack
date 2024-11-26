@@ -9,13 +9,16 @@ import Container from "@mui/material/Container";
 import { RiShoppingBagFill, RiShoppingCartFill } from "react-icons/ri";
 import AdbIcon from "@mui/icons-material/Adb";
 
-import { Avatar, Badge, Button, Divider, ListItemIcon, MenuItem, styled, Tooltip } from "@mui/material";
+import { Avatar, Badge, Button, Chip, Divider, ListItemIcon, MenuItem, styled, Tooltip } from "@mui/material";
 import { Logout, PersonAdd, Settings } from "@mui/icons-material";
 // import styled from "@mui/material/styles/styled";
 import Menu, { MenuProps } from "@mui/material/Menu";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { FiPhoneCall } from "react-icons/fi";
+import { CgMenuLeftAlt } from "react-icons/cg";
+import { FaAngleDown } from "react-icons/fa";
+import { GoChevronDown } from "react-icons/go";
 
 // Styled Menu Component
 const StyledMenu = styled((props: MenuProps) => (
@@ -303,9 +306,10 @@ const Navbar = () => {
         <Container maxWidth="xl">
           <Toolbar
             disableGutters
-            className="min-h-[90px] flex flex-row justify-between items-center text-black ">
-            <div className="flex flex-row justify-center items-center">
-              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
+            className="min-h-[80px] flex flex-row justify-between items-center text-black ">
+            <div className="flex flex-row justify-center items-center bg-offwhite px-4 py-3 rounded-full cursor-pointer">
+              <div className=" flex flex-row justify-center items-center gap-1">
+              <CgMenuLeftAlt className="text-black text-2xl mr-1 inline" />
               <Typography
                 variant="h6"
                 noWrap
@@ -314,120 +318,143 @@ const Navbar = () => {
                 sx={{
                   mr: 2,
                   display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
+                  // fontFamily: "monospace",
                   fontWeight: 600,
-                  letterSpacing: ".2rem",
+                  // letterSpacing: ".1rem",
                   color: "inherit",
                   textDecoration: "none",
-                  fontSize: 20,
+                  fontSize: 15,
                 }}>
-                MERNCart
+                Shop by Departments
               </Typography>
+              </div>
+              <GoChevronDown className="text-black text-2xl  inline " />
             </div>
 
             <div className="flex flex-row justify-center items-center">
-              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
               <Typography
                 variant="h6"
                 noWrap
+                className="hover:text-darkGreen duration-150"
                 component="a"
                 href="#app-bar-with-responsive-menu"
                 sx={{
                   mr: 2,
                   display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
+                  // fontFamily: "monospace",
                   fontWeight: 600,
-                  letterSpacing: ".2rem",
+                  letterSpacing: ".1rem",
                   color: "inherit",
                   textDecoration: "none",
-                  fontSize: 20,
+                  fontSize: 15,
                 }}>
-                MERNCart
+              Home
               </Typography>
             </div>
 
-            <div className="flex flex-row justify-center items-center">
-              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
+            <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center">
               <Typography
                 variant="h6"
                 noWrap
                 component="a"
                 href="#app-bar-with-responsive-menu"
                 sx={{
-                  mr: 2,
+                  
                   display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
+                  // fontFamily: "monospace",
                   fontWeight: 600,
-                  letterSpacing: ".2rem",
+                  // letterSpacing: ".1rem",
                   color: "inherit",
                   textDecoration: "none",
-                  fontSize: 20,
+                  fontSize: 15,
                 }}>
-                MERNCart
+                Our Store
               </Typography>
+              <GoChevronDown className="text-black text-2xl  inline " />
             </div>
 
-            <div className="flex flex-row justify-center items-center">
-              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
+            <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center">
               <Typography
                 variant="h6"
                 noWrap
                 component="a"
                 href="#app-bar-with-responsive-menu"
                 sx={{
-                  mr: 2,
+                  
                   display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
+                  // fontFamily: "monospace",
                   fontWeight: 600,
-                  letterSpacing: ".2rem",
+                  // letterSpacing: ".1rem",
                   color: "inherit",
                   textDecoration: "none",
-                  fontSize: 20,
+                  fontSize: 15,
                 }}>
-                MERNCart
+                Special <Chip label="SALE" color="success"  className="ml-[3px] text-[10px] rounded-md  bg-offwhite" variant="outlined" size="small" />
               </Typography>
+              <GoChevronDown className="text-black text-2xl  inline " />
             </div>
 
-            <div className="flex flex-row justify-center items-center">
-              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
+            <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center">
               <Typography
                 variant="h6"
                 noWrap
                 component="a"
                 href="#app-bar-with-responsive-menu"
                 sx={{
-                  mr: 2,
+                  
                   display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
+                  // fontFamily: "monospace",
                   fontWeight: 600,
-                  letterSpacing: ".2rem",
+                  // letterSpacing: ".1rem",
                   color: "inherit",
                   textDecoration: "none",
-                  fontSize: 20,
+                  fontSize: 15,
                 }}>
-                MERNCart
+                Categories <Chip label="SALE" color="error"  className="ml-[3px] text-[10px] rounded-md  bg-offwhite" variant="outlined" size="small" />
               </Typography>
+              <GoChevronDown className="text-black text-2xl  inline " />
             </div>
 
-            <div className="flex flex-row justify-center items-center">
-              <RiShoppingBagFill className="text-black text-lg mr-1 inline" />
+            <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center">
               <Typography
                 variant="h6"
                 noWrap
                 component="a"
                 href="#app-bar-with-responsive-menu"
                 sx={{
-                  mr: 2,
+                  
                   display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
+                  // fontFamily: "monospace",
                   fontWeight: 600,
-                  letterSpacing: ".2rem",
+                  // letterSpacing: ".1rem",
                   color: "inherit",
                   textDecoration: "none",
-                  fontSize: 20,
+                  fontSize: 15,
                 }}>
-                MERNCart
+                Top deals
               </Typography>
+              <GoChevronDown className="text-black text-2xl  inline " />
+            </div>
+
+            <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center">
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                href="#app-bar-with-responsive-menu"
+                sx={{
+                  
+                  display: { xs: "none", md: "flex" },
+                  // fontFamily: "monospace",
+                  fontWeight: 600,
+                  // letterSpacing: ".1rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                  fontSize: 15,
+                }}>
+                Elements
+              </Typography>
+              <GoChevronDown className="text-black text-2xl  inline " />
             </div>
           
             <div>

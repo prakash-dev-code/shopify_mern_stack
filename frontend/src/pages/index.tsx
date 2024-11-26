@@ -14,7 +14,7 @@ const geistMono = localFont({
 export default function Home() {
   return (
     <div
-      className={`${geistSans.variable} ${geistMono.variable} text-5xl text-center flex justify-center items-center font-semibold text-blue-700 min-h-[80vh] `}>
+      className={`${geistSans.variable} ${geistMono.variable} text-5xl text-center flex justify-center items-center font-semibold text-darkGreen min-h-[80vh] `}>
       HOME PAGE
     </div>
   );
