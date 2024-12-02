@@ -101,8 +101,8 @@ const Navbar = () => {
     }
   };
 
-  console.log(openSubMenus,"S M")
-  console.log(isMenuOpen)
+  console.log(openSubMenus, "S M");
+  console.log(isMenuOpen);
 
   const subMenuItems: { [key: string]: string[] } = {
     Bakery: ["Bread", "Cakes", "Cookies"],
@@ -112,6 +112,26 @@ const Navbar = () => {
     "Sea Food": ["Fish", "Shrimp", "Crab"],
     "Dairy Items": ["Milk", "Cream", "Paneer"],
   };
+
+
+  // store menu 
+
+  const [anchorElStore, setAnchorElStore] = React.useState<any>(null);
+
+  const [isMenuOpenStore, setIsMenuOpenStore] = React.useState(false);
+  // const [openSubMenu, setOpenSubMenu] = React.useState<string | null>(null);
+
+  const handleMouseEnterStore = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElStore(event.currentTarget);
+    setIsMenuOpenStore(true);
+  };
+
+  const handleMouseLeaveStore = () => {
+    setIsMenuOpenStore(false);
+    setAnchorElStore(null);
+  };
+  // store menu 
+
   // hover menu function
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -445,12 +465,8 @@ const Navbar = () => {
                       >
                         {item}
                         {Object.keys(subMenuItems).includes(item) && (
-                          <span
-                            className="text-green-500 text-base font-bold cursor-pointer"
-                         
-                          >
+                          <span className="text-green-500 text-base font-bold cursor-pointer">
                             {openSubMenus.includes(item) ? "-" : "+"}
-
                           </span>
                         )}
                       </MenuItem>
@@ -468,13 +484,10 @@ const Navbar = () => {
                               key={subIndex}
                               className="px-4 py-2 text-base text-black cursor-pointer hover:bg-green-100 duration-150"
                               style={{
-                                borderBottom:"1px solid #0000001f"
+                                borderBottom: "1px solid #0000001f",
                               }}
                             >
-                              <span className="pl-2">
-
-                              {subItem}
-                              </span>
+                              <span className="pl-2">{subItem}</span>
                             </div>
                           ))}
                         </div>
@@ -506,7 +519,8 @@ const Navbar = () => {
                 </Typography>
               </div>
 
-              <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center">
+              <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center cursor-pointer"    onMouseEnter={handleMouseEnterStore}
+                onMouseLeave={() => !isMenuOpenStore && handleMouseLeaveStore()}>
                 <Typography
                   variant="h6"
                   noWrap
@@ -520,11 +534,34 @@ const Navbar = () => {
                     color: "inherit",
                     textDecoration: "none",
                     fontSize: 15,
+                    
                   }}
+                  className="cursor-pointer"
                 >
                   Our Store
                 </Typography>
                 <GoChevronDown className="text-black text-2xl  inline " />
+                <Menu
+                  anchorEl={anchorElStore}
+                  open={Boolean(anchorElStore && isMenuOpenStore)}
+                  onClose={handleMouseLeaveStore}
+                  MenuListProps={{
+                    onMouseEnter: () => setIsMenuOpen(true),
+                    onMouseLeave: handleMouseLeaveStore,
+                  }}
+                  anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                  transformOrigin={{ vertical: "top", horizontal: "center" }}
+                  className="p-2 flex justify-center items-center"
+                  PaperProps={{
+                    className:
+                      "bg-white border bg-white border-darkGreen shadow-lg  mt-3 mx-auto flex ml-[8%]   rounded-lg w-[76%]",
+                  }}
+                >
+                  <MenuItem>Beverages</MenuItem>
+                  <MenuItem>Dairy Items</MenuItem>
+                  <MenuItem>Flat 80% OFF</MenuItem>
+                  <MenuItem>Up to 30% OFF</MenuItem>
+                </Menu>
               </div>
 
               <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center">
