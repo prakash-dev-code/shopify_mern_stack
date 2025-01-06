@@ -29,6 +29,9 @@ import { FiPhoneCall } from "react-icons/fi";
 import { CgMenuLeftAlt } from "react-icons/cg";
 import { FaAngleDown } from "react-icons/fa";
 import { GoChevronDown } from "react-icons/go";
+import Image from "next/image";
+import bannerImage from "@./../../frontend/public/images/navbar/shop-banner-01.jpg";
+import bannerImageTwo from "@./../../frontend/public/images/navbar/shop-banner-02.jpg";
 
 // Styled Menu Component
 const StyledMenu = styled((props: MenuProps) => (
@@ -113,8 +116,7 @@ const Navbar = () => {
     "Dairy Items": ["Milk", "Cream", "Paneer"],
   };
 
-
-  // store menu 
+  // store menu
 
   const [anchorElStore, setAnchorElStore] = React.useState<any>(null);
 
@@ -130,7 +132,7 @@ const Navbar = () => {
     setIsMenuOpenStore(false);
     setAnchorElStore(null);
   };
-  // store menu 
+  // store menu
 
   // hover menu function
 
@@ -519,8 +521,11 @@ const Navbar = () => {
                 </Typography>
               </div>
 
-              <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center cursor-pointer"    onMouseEnter={handleMouseEnterStore}
-                onMouseLeave={() => !isMenuOpenStore && handleMouseLeaveStore()}>
+              <div
+                className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center cursor-pointer"
+                onMouseEnter={handleMouseEnterStore}
+                onMouseLeave={() => !isMenuOpenStore && handleMouseLeaveStore()}
+              >
                 <Typography
                   variant="h6"
                   noWrap
@@ -534,7 +539,6 @@ const Navbar = () => {
                     color: "inherit",
                     textDecoration: "none",
                     fontSize: 15,
-                    
                   }}
                   className="cursor-pointer"
                 >
@@ -543,6 +547,7 @@ const Navbar = () => {
                 <GoChevronDown className="text-black text-2xl  inline " />
                 <Menu
                   anchorEl={anchorElStore}
+                  
                   open={Boolean(anchorElStore && isMenuOpenStore)}
                   onClose={handleMouseLeaveStore}
                   MenuListProps={{
@@ -551,16 +556,54 @@ const Navbar = () => {
                   }}
                   anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                   transformOrigin={{ vertical: "top", horizontal: "center" }}
-                  className="p-2 flex justify-center items-center"
+                  className="p-2  flex justify-center items-center "
                   PaperProps={{
                     className:
-                      "bg-white border bg-white border-darkGreen shadow-lg  mt-3 mx-auto flex ml-[8%]   rounded-lg w-[76%]",
+                      " border   border-darkGreen shadow-lg  mt-3 mx-auto flex ml-[8%]   rounded-lg w-[76%]",
                   }}
                 >
-                  <MenuItem>Beverages</MenuItem>
-                  <MenuItem>Dairy Items</MenuItem>
-                  <MenuItem>Flat 80% OFF</MenuItem>
-                  <MenuItem>Up to 30% OFF</MenuItem>
+                  <div className="w-[100%]  h-auto   flex flex-row bg-red">
+                    <div className="w-[40%] flex flex-row justify-center items-center gap-4 bg-green-600">
+                      <div>
+                        <MenuItem className="hover:bg-white mb-1 text-black font-semibold">
+                          Beverages
+                        </MenuItem>
+                        <MenuItem className="hover:bg-white text-gray-500 text-[15px] font-normal ">
+                          Dairy Items
+                        </MenuItem>
+                        <MenuItem className="hover:bg-white text-gray-500 text-[15px] font-normal">
+                          Flat 80% OFF
+                        </MenuItem>
+                        <MenuItem className="hover:bg-white text-gray-500 text-[15px] font-normal">
+                          Up to 30% OFF
+                        </MenuItem>
+                      </div>
+
+                      <div>
+                        <MenuItem className="hover:bg-white mb-1 text-black font-semibold">
+                          Dairy Items
+                        </MenuItem>
+                        <MenuItem className="hover:bg-white text-gray-500 text-[15px] font-normal">
+                          Dairy Items
+                        </MenuItem>
+                        <MenuItem className="hover:bg-white text-gray-500 text-[15px] font-normal">
+                          Flat 80% OFF
+                        </MenuItem>
+                        <MenuItem className="hover:bg-white text-gray-500 text-[15px] font-normal">
+                          Up to 30% OFF
+                        </MenuItem>
+                      </div>
+                    </div>
+
+                    <div className="w-[60%]  flex flex-row gap-4 items-center ">
+                      <div className="">
+                        <Image src={bannerImageTwo} alt="banner-image" />
+                      </div>
+                      <div>
+                        <Image src={bannerImage} alt="banner-image" />
+                      </div>
+                    </div>
+                  </div>
                 </Menu>
               </div>
 
@@ -584,7 +627,7 @@ const Navbar = () => {
                   <Chip
                     label="SALE"
                     color="success"
-                    className="ml-[3px] text-[10px] rounded-md  bg-offwhite"
+                    className="ml-[3px] text-[9px] rounded-md  bg-green-100"
                     variant="outlined"
                     size="small"
                   />
@@ -612,8 +655,8 @@ const Navbar = () => {
                   <Chip
                     label="SALE"
                     color="error"
-                    className="ml-[3px] text-[10px] rounded-md  bg-offwhite"
-                    variant="outlined"
+                    className="ml-[3px] text-[9px] rounded-md  bg-red"
+                    variant="filled"
                     size="small"
                   />
                 </Typography>
