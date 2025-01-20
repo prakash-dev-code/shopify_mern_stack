@@ -547,7 +547,7 @@ const Navbar = () => {
                 <GoChevronDown className="text-black text-2xl  inline " />
                 <Menu
                   anchorEl={anchorElStore}
-                  
+                  // open={true}
                   open={Boolean(anchorElStore && isMenuOpenStore)}
                   onClose={handleMouseLeaveStore}
                   MenuListProps={{
@@ -556,52 +556,101 @@ const Navbar = () => {
                   }}
                   anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                   transformOrigin={{ vertical: "top", horizontal: "center" }}
-                  className="p-2  flex justify-center items-center "
+                  className="p-2 w-full flex justify-center items-center "
                   PaperProps={{
                     className:
-                      " border   border-darkGreen shadow-lg  mt-3 mx-auto flex ml-[8%]   rounded-lg w-[76%]",
+                      " border   border-darkGreen shadow-lg  mt-5 mx-auto flex ml-[8%]   rounded-lg w-[76%]",
+                    sx: {
+                      ul: {
+                        width: "100%", // Ensures the ul takes the full width
+                        padding: 0,
+                      },
+                    },
                   }}
                 >
-                  <div className="w-[100%]  h-auto   flex flex-row bg-red">
-                    <div className="w-[40%] flex flex-row justify-center items-center gap-4 bg-green-600">
-                      <div>
-                        <MenuItem className="hover:bg-white mb-1 text-black font-semibold">
+                  <div className="w-[100%]  h-auto p-5   flex flex-row  justify-between items-start">
+                    <div className=" w-[35%] flex flex-row justify-between items-center gap-4 ">
+                      <div className="w-[50%]">
+                        <MenuItem className="hover:bg-white py-1 pl-0  text-black font-semibold">
                           Beverages
                         </MenuItem>
-                        <MenuItem className="hover:bg-white text-gray-500 text-[15px] font-normal ">
+                        <MenuItem className="hover:bg-white py-1 pl-0 text-black text-[15px] font-normal ">
                           Dairy Items
                         </MenuItem>
-                        <MenuItem className="hover:bg-white text-gray-500 text-[15px] font-normal">
+                        <MenuItem className="hover:bg-white py-1 pl-0 text-black text-[13px] font-normal">
                           Flat 80% OFF
                         </MenuItem>
-                        <MenuItem className="hover:bg-white text-gray-500 text-[15px] font-normal">
+                        <MenuItem className="hover:bg-white py-1 pl-0 text-black text-[13px] font-normal">
+                          Up to 30% OFF
+                        </MenuItem>
+                        <MenuItem className="hover:bg-white py-1 pl-0 text-black text-[13px] font-normal">
+                          Flat 80% OFF
+                        </MenuItem>
+                        <MenuItem className="hover:bg-white py-1 pl-0 text-black text-[13px] font-normal">
                           Up to 30% OFF
                         </MenuItem>
                       </div>
 
-                      <div>
-                        <MenuItem className="hover:bg-white mb-1 text-black font-semibold">
+                      <div className="w-[50%]">
+                        <MenuItem className="hover:bg-white py-1  text-black font-semibold">
                           Dairy Items
                         </MenuItem>
-                        <MenuItem className="hover:bg-white text-gray-500 text-[15px] font-normal">
+                        <MenuItem className="hover:bg-white py-1 text-black text-[13px] font-normal">
                           Dairy Items
                         </MenuItem>
-                        <MenuItem className="hover:bg-white text-gray-500 text-[15px] font-normal">
+                        <MenuItem className="hover:bg-white py-1 text-black text-[13px] font-normal">
                           Flat 80% OFF
                         </MenuItem>
-                        <MenuItem className="hover:bg-white text-gray-500 text-[15px] font-normal">
+                        <MenuItem className="hover:bg-white py-1 text-black text-[13px] font-normal">
+                          Up to 30% OFF
+                        </MenuItem>
+                        <MenuItem className="hover:bg-white py-1 text-black text-[13px] font-normal">
+                          Flat 80% OFF
+                        </MenuItem>
+                        <MenuItem className="hover:bg-white py-1 text-black text-[13px] font-normal">
                           Up to 30% OFF
                         </MenuItem>
                       </div>
                     </div>
 
-                    <div className="w-[60%]  flex flex-row gap-4 items-center ">
-                      <div className="">
-                        <Image src={bannerImageTwo} alt="banner-image" />
+                    <div className=" w-[65%] my-auto flex flex-row gap-8 justify-end items-center ">
+                      <div className="relative ">
+                        <div className="absolute top-8 left-5 bg-white text-black text-xs font-normal px-2 py-1">
+                          OFFER
+                        </div>
+                        <div className=" bottom-4 left-5 text-left absolute">
+                          <p className="text-xl font-extrabold text-black">
+                            Flat 80% <br /> OFF
+                          </p>
+                        </div>
+                        <div className=" flex justify-center">
+                          <Image
+                            src={bannerImageTwo}
+                            alt="banner-image"
+                            className="rounded-xl object-cover"
+                          />
+                        </div>
                       </div>
-                      <div>
-                        <Image src={bannerImage} alt="banner-image" />
+
+                      <div className="relative ">
+                        <div className="absolute top-8 left-5 bg-white text-black text-xs font-normal px-2 py-1">
+                        Special Offer
+                        </div>
+                        <div className=" bottom-4 left-5 text-left absolute">
+                          <p className="text-xl font-extrabold text-black">
+                          Up to 30% OFF<br /> <span className="font-semibold text-lg text-gray-600">New Arrivals</span>
+                          </p>
+                        </div>
+                        <div className=" flex justify-center">
+                          <Image
+                            src={bannerImage}
+                            alt="banner-image"
+                            className="rounded-xl object-cover"
+                          />
+                        </div>
                       </div>
+
+                      
                     </div>
                   </div>
                 </Menu>
