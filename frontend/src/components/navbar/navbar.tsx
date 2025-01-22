@@ -32,6 +32,7 @@ import { GoChevronDown } from "react-icons/go";
 import Image from "next/image";
 import bannerImage from "@./../../frontend/public/images/navbar/shop-banner-01.jpg";
 import bannerImageTwo from "@./../../frontend/public/images/navbar/shop-banner-02.jpg";
+import ProductCard from "../common-components/productCard";
 
 // Styled Menu Component
 const StyledMenu = styled((props: MenuProps) => (
@@ -104,8 +105,6 @@ const Navbar = () => {
     }
   };
 
-
-
   const subMenuItems: { [key: string]: string[] } = {
     Bakery: ["Bread", "Cakes", "Cookies"],
     "Snacks Item": ["Chips", "Popcorn", "Nuts"],
@@ -133,23 +132,23 @@ const Navbar = () => {
   };
   // store menu
 
-    // Special menu
+  // Special menu
 
-    const [anchorElSpecial, setAnchorElSpecial] = React.useState<any>(null);
+  const [anchorElSpecial, setAnchorElSpecial] = React.useState<any>(null);
 
-    const [isMenuOpenSpecial, setIsMenuOpenSpecial] = React.useState(false);
-    // const [openSubMenu, setOpenSubMenu] = React.useState<string | null>(null);
-  
-    const handleMouseEnterSpecial = (event: React.MouseEvent<HTMLElement>) => {
-      setAnchorElSpecial(event.currentTarget);
-      setIsMenuOpenSpecial(true);
-    };
-  
-    const handleMouseLeaveSpecial = () => {
-      setIsMenuOpenSpecial(false);
-      setAnchorElSpecial(null);
-    };
-    // Special menu
+  const [isMenuOpenSpecial, setIsMenuOpenSpecial] = React.useState(false);
+  // const [openSubMenu, setOpenSubMenu] = React.useState<string | null>(null);
+
+  const handleMouseEnterSpecial = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElSpecial(event.currentTarget);
+    setIsMenuOpenSpecial(true);
+  };
+
+  const handleMouseLeaveSpecial = () => {
+    setIsMenuOpenSpecial(false);
+    setAnchorElSpecial(null);
+  };
+  // Special menu
 
   // hover menu function
 
@@ -651,11 +650,15 @@ const Navbar = () => {
 
                       <div className="relative ">
                         <div className="absolute top-8 left-5 bg-white text-black text-xs font-normal px-2 py-1">
-                        Special Offer
+                          Special Offer
                         </div>
                         <div className=" bottom-4 left-5 text-left absolute">
                           <p className="text-xl font-extrabold text-black">
-                          Up to 30% OFF<br /> <span className="font-semibold text-lg text-gray-600">New Arrivals</span>
+                            Up to 30% OFF
+                            <br />{" "}
+                            <span className="font-semibold text-lg text-gray-600">
+                              New Arrivals
+                            </span>
                           </p>
                         </div>
                         <div className=" flex justify-center">
@@ -666,8 +669,6 @@ const Navbar = () => {
                           />
                         </div>
                       </div>
-
-                      
                     </div>
                   </div>
                 </Menu>
@@ -678,7 +679,9 @@ const Navbar = () => {
               <div
                 className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center cursor-pointer"
                 onMouseEnter={handleMouseEnterSpecial}
-                onMouseLeave={() => !isMenuOpenSpecial && handleMouseLeaveSpecial()}
+                onMouseLeave={() =>
+                  !isMenuOpenSpecial && handleMouseLeaveSpecial()
+                }
               >
                 <Typography
                   variant="h6"
@@ -731,13 +734,45 @@ const Navbar = () => {
                   }}
                 >
                   <div className="w-[100%]  h-auto p-5   flex flex-col justify-center  gap-4 items-items">
-                    <h2 className="text-center font-semibold text-sm">Special</h2>
-                    <div>
+                    <h2 className="text-center font-semibold text-sm">
+                      Special
+                    </h2>
+                    <div className="w-full flex flex-row gap-4 h-auto">
                       Add SLider here
+                      <div>
+                        <ProductCard
+                          image="/images/product/garlic.jpg" // Replace with your image path
+                          title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
+                          originalPrice={20.0}
+                          discountedPrice={15.0}
+                          discount={25}
+                          rating={4}
+                          reviews={2}
+                        />
+                      </div>
+                      <div>
+                        <ProductCard
+                          image="/images/product/garlic.jpg" // Replace with your image path
+                          title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
+                          originalPrice={20.0}
+                          discountedPrice={15.0}
+                          discount={25}
+                          rating={4}
+                          reviews={0}
+                        />
+                      </div>
+                      <div>
+                        <ProductCard
+                          image="/images/product/garlic.jpg" // Replace with your image path
+                          title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
+                          originalPrice={20.0}
+                          discountedPrice={15.0}
+                          discount={25}
+                          rating={4}
+                          reviews={7}
+                        />
+                      </div>
                     </div>
-                    
-
-                    
                   </div>
                 </Menu>
               </div>
@@ -770,7 +805,7 @@ const Navbar = () => {
                   />
                 </Typography>
                 <GoChevronDown className="text-black text-2xl  inline " />
-                 <Menu
+                <Menu
                   anchorEl={anchorElStore}
                   // open={true}
                   open={Boolean(anchorElStore && isMenuOpenStore)}
@@ -859,11 +894,15 @@ const Navbar = () => {
 
                       <div className="relative ">
                         <div className="absolute top-8 left-5 bg-white text-black text-xs font-normal px-2 py-1">
-                        Special Offer
+                          Special Offer
                         </div>
                         <div className=" bottom-4 left-5 text-left absolute">
                           <p className="text-xl font-extrabold text-black">
-                          Up to 30% OFF<br /> <span className="font-semibold text-lg text-gray-600">New Arrivals</span>
+                            Up to 30% OFF
+                            <br />{" "}
+                            <span className="font-semibold text-lg text-gray-600">
+                              New Arrivals
+                            </span>
                           </p>
                         </div>
                         <div className=" flex justify-center">
@@ -874,8 +913,6 @@ const Navbar = () => {
                           />
                         </div>
                       </div>
-
-                      
                     </div>
                   </div>
                 </Menu>

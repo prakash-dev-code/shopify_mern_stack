@@ -20,6 +20,7 @@ const config: Config = {
         purple: "#800080",
         orange: "#FFA500",
         pink: "#FFC0CB",
+        lightGray: "#f0f0f0",
       },
     },
   },
