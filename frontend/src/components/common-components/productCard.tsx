@@ -41,17 +41,17 @@ const ProductCard: FC<ProductCardProps> = ({
       {/* Action Buttons */}
       <div className="absolute top-2 right-2  flex flex-col space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <Tooltip title="Quick View">
-          <IconButton size="small" className="bg-gray-100 hover:bg-gray-200">
+          <IconButton size="small" className="bg-gray-100 hover:text-white hover:bg-green">
             <VisibilityIcon fontSize="small" />
           </IconButton>
         </Tooltip>
         <Tooltip title="Compare">
-          <IconButton size="small" className="bg-gray-100 hover:bg-gray-200">
+          <IconButton size="small" className="bg-gray-100 hover:text-white hover:bg-green">
             <ShuffleIcon fontSize="small" />
           </IconButton>
         </Tooltip>
         <Tooltip title="Add to Wishlist">
-          <IconButton size="small" className="bg-gray-100 hover:bg-gray-200">
+          <IconButton size="small" className="bg-gray-100 hover:text-white hover:bg-green">
             <FavoriteBorderIcon fontSize="small" />
           </IconButton>
         </Tooltip>
@@ -78,7 +78,7 @@ const ProductCard: FC<ProductCardProps> = ({
             ${originalPrice.toFixed(2)}
           </span>
           <span className="text-red-500 font-bold">${discountedPrice.toFixed(2)}</span>
-          <span className="text-green-500 font-bold ml-2">{discount}%</span>
+          <span className="text-green font-bold ml-2">{discount}%</span>
         </div>
       </div>
 
@@ -87,7 +87,7 @@ const ProductCard: FC<ProductCardProps> = ({
 
       <Button
         variant="contained"
-        className="bg-lightGray group-hover:bg-green-500 font-bold text-sm group-hover:text-white transition-opacity duration-300 text-black mt-4 rounded-lg  w-full"
+        className="bg-lightGray group-hover:bg-green font-bold text-sm group-hover:text-white transition-opacity duration-300 text-black mt-4 rounded-lg  w-full"
         >
         Choose options
       </Button>

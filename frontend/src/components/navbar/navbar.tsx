@@ -33,6 +33,12 @@ import Image from "next/image";
 import bannerImage from "@./../../frontend/public/images/navbar/shop-banner-01.jpg";
 import bannerImageTwo from "@./../../frontend/public/images/navbar/shop-banner-02.jpg";
 import ProductCard from "../common-components/productCard";
+import { Swiper } from "swiper/react";
+import { SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 
 // Styled Menu Component
 const StyledMenu = styled((props: MenuProps) => (
@@ -71,6 +77,14 @@ const StyledMenu = styled((props: MenuProps) => (
 // const settings = ["Profile", "My Account", "Cart", "Logout"];
 
 const Navbar = () => {
+  const [swiperInstance, setSwiperInstance] = React.useState<any>(null);
+  const [isBeginning, setIsBeginning] = React.useState(true);
+  const [isEnd, setIsEnd] = React.useState(false);
+
+  const updateSwiperState = (swiper: any) => {
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  };
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
@@ -703,7 +717,7 @@ const Navbar = () => {
                   <Chip
                     label="SALE"
                     color="success"
-                    className="ml-[3px] text-[9px] rounded-md  bg-green-100"
+                    className="ml-[3px] text-[9px] rounded-md  bg-[#4cd5843b]"
                     variant="outlined"
                     size="small"
                   />
@@ -737,47 +751,150 @@ const Navbar = () => {
                     <h2 className="text-center font-semibold text-sm">
                       Special
                     </h2>
-                    <div className="w-full flex flex-row gap-4 h-auto">
-                      Add SLider here
-                      <div>
-                        <ProductCard
-                          image="/images/product/garlic.jpg" // Replace with your image path
-                          title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
-                          originalPrice={20.0}
-                          discountedPrice={15.0}
-                          discount={25}
-                          rating={4}
-                          reviews={2}
-                        />
-                      </div>
-                      <div>
-                        <ProductCard
-                          image="/images/product/garlic.jpg" // Replace with your image path
-                          title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
-                          originalPrice={20.0}
-                          discountedPrice={15.0}
-                          discount={25}
-                          rating={4}
-                          reviews={0}
-                        />
-                      </div>
-                      <div>
-                        <ProductCard
-                          image="/images/product/garlic.jpg" // Replace with your image path
-                          title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
-                          originalPrice={20.0}
-                          discountedPrice={15.0}
-                          discount={25}
-                          rating={4}
-                          reviews={7}
-                        />
-                      </div>
+                    <div className="w-full relative  h-auto">
+                      <Swiper
+                        loop={false}
+                        spaceBetween={24}
+                        slidesPerView="auto"
+                        onSwiper={(swiper) => {
+                          setSwiperInstance(swiper);
+                          updateSwiperState(swiper); // Update state on Swiper initialization
+                        }}
+                        onSlideChange={(swiper) => updateSwiperState(swiper)}
+                        
+                        // onSwiper={setSwiperInstance} // Set the Swiper instance
+                        grabCursor={true}
+                        modules={[Navigation]}
+                      >
+                        <SwiperSlide style={{ width: "auto" }}>
+                          <ProductCard
+                            image="/images/product/garlic.jpg" // Replace with your image path
+                            title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
+                            originalPrice={20.0}
+                            discountedPrice={15.0}
+                            discount={25}
+                            rating={4}
+                            reviews={2}
+                          />
+                        </SwiperSlide>
+                        <SwiperSlide style={{ width: "auto" }}>
+                          <ProductCard
+                            image="/images/product/garlic.jpg" // Replace with your image path
+                            title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
+                            originalPrice={20.0}
+                            discountedPrice={15.0}
+                            discount={25}
+                            rating={4}
+                            reviews={2}
+                          />
+                        </SwiperSlide>
+                        <SwiperSlide style={{ width: "auto" }}>
+                          <ProductCard
+                            image="/images/product/garlic.jpg" // Replace with your image path
+                            title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
+                            originalPrice={20.0}
+                            discountedPrice={15.0}
+                            discount={25}
+                            rating={4}
+                            reviews={2}
+                          />
+                        </SwiperSlide>
+                        <SwiperSlide style={{ width: "auto" }}>
+                          <ProductCard
+                            image="/images/product/garlic.jpg" // Replace with your image path
+                            title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
+                            originalPrice={20.0}
+                            discountedPrice={15.0}
+                            discount={25}
+                            rating={4}
+                            reviews={2}
+                          />
+                        </SwiperSlide>
+                        <SwiperSlide style={{ width: "auto" }}>
+                          <ProductCard
+                            image="/images/product/garlic.jpg" // Replace with your image path
+                            title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
+                            originalPrice={20.0}
+                            discountedPrice={15.0}
+                            discount={25}
+                            rating={4}
+                            reviews={2}
+                          />
+                        </SwiperSlide>
+                        <SwiperSlide style={{ width: "auto" }}>
+                          <ProductCard
+                            image="/images/product/garlic.jpg" // Replace with your image path
+                            title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
+                            originalPrice={20.0}
+                            discountedPrice={15.0}
+                            discount={25}
+                            rating={4}
+                            reviews={2}
+                          />
+                        </SwiperSlide>
+                        <SwiperSlide style={{ width: "auto" }}>
+                          <ProductCard
+                            image="/images/product/garlic.jpg" // Replace with your image path
+                            title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
+                            originalPrice={20.0}
+                            discountedPrice={15.0}
+                            discount={25}
+                            rating={4}
+                            reviews={2}
+                          />
+                        </SwiperSlide>
+                        <SwiperSlide style={{ width: "auto" }}>
+                          <ProductCard
+                            image="/images/product/garlic.jpg" // Replace with your image path
+                            title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
+                            originalPrice={20.0}
+                            discountedPrice={15.0}
+                            discount={25}
+                            rating={4}
+                            reviews={0}
+                          />
+                        </SwiperSlide>
+                        <SwiperSlide style={{ width: "auto" }}>
+                          <ProductCard
+                            image="/images/product/garlic.jpg" // Replace with your image path
+                            title="Indian Garlic 200 G (Approx 750 G - 6000 G)"
+                            originalPrice={20.0}
+                            discountedPrice={15.0}
+                            discount={25}
+                            rating={4}
+                            reviews={7}
+                          />
+                        </SwiperSlide>
+                      </Swiper>
+                      {/* <div className="gap-3 absolute"> */}
+                      <FaCircleChevronLeft
+                        className={`h-7 w-7 absolute top-1/2 transform  text-green -translate-y-1/2 left-[-10px] z-10 ${
+                          isBeginning
+                            ? "opacity-50 cursor-default"
+                            : "opacity-100 cursor-pointer"
+                        }`}
+                        onClick={() =>
+                          !isBeginning && swiperInstance?.slidePrev()
+                        }
+                      />
+                      <FaCircleChevronRight
+                        className={`h-7 w-7 absolute text-green top-1/2 transform -translate-y-1/2 right-[-10px] z-10 ${
+                          isEnd
+                            ? "opacity-50 cursor-default"
+                            : "opacity-100 cursor-pointer"
+                        }`}
+                        onClick={() => !isEnd && swiperInstance?.slideNext()}
+                      />
+
+                      {/* </div> */}
                     </div>
                   </div>
                 </Menu>
               </div>
 
               {/* Special end */}
+
+              {/* Category start */}
 
               <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center">
                 <Typography
@@ -797,7 +914,7 @@ const Navbar = () => {
                 >
                   Categories{" "}
                   <Chip
-                    label="SALE"
+                    label="HOT"
                     color="error"
                     className="ml-[3px] text-[9px] rounded-md  bg-red"
                     variant="filled"
@@ -918,6 +1035,10 @@ const Navbar = () => {
                 </Menu>
               </div>
 
+              {/* Category end */}
+
+              {/* top deal start  */}
+
               <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center">
                 <Typography
                   variant="h6"
@@ -939,6 +1060,10 @@ const Navbar = () => {
                 <GoChevronDown className="text-black text-2xl  inline " />
               </div>
 
+              {/* top deal end  */}
+
+              {/* elements start  */}
+
               <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center">
                 <Typography
                   variant="h6"
@@ -959,6 +1084,8 @@ const Navbar = () => {
                 </Typography>
                 <GoChevronDown className="text-black text-2xl  inline " />
               </div>
+
+              {/* Elements end  */}
 
               <div></div>
 
