@@ -164,6 +164,26 @@ const Navbar = () => {
   };
   // Special menu
 
+  // category menu
+
+  
+
+   const [anchorElCategory, setAnchorElCategory] = React.useState<any>(null);
+
+   const [isMenuOpenCategory, setIsMenuOpenCategory] = React.useState(false);
+   // const [openSubMenu, setOpenSubMenu] = React.useState<string | null>(null);
+ 
+   const handleMouseEnterCategory = (event: React.MouseEvent<HTMLElement>) => {
+     setAnchorElCategory(event.currentTarget);
+     setIsMenuOpenCategory(true);
+   };
+ 
+   const handleMouseLeaveCategory = () => {
+     setIsMenuOpenCategory(false);
+     setAnchorElCategory(null);
+   };
+  
+
   // hover menu function
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -179,6 +199,8 @@ const Navbar = () => {
   const handleCloseOptionsMenu = () => {
     setAnchorElOptions(null);
   };
+
+
 
   return (
     <>
@@ -896,7 +918,8 @@ const Navbar = () => {
 
               {/* Category start */}
 
-              <div className="flex flex-row justify-center gap-1 hover:text-darkGreen duration-150 items-center">
+              <div   onMouseEnter={handleMouseEnterCategory}
+                onMouseLeave={() => !isMenuOpenCategory && handleMouseLeaveCategory()} className="flex flex-row justify-center gap-1  hover:text-darkGreen duration-150 items-center">
                 <Typography
                   variant="h6"
                   noWrap
@@ -923,20 +946,20 @@ const Navbar = () => {
                 </Typography>
                 <GoChevronDown className="text-black text-2xl  inline " />
                 <Menu
-                  anchorEl={anchorElStore}
+                  anchorEl={anchorElCategory}
                   // open={true}
-                  open={Boolean(anchorElStore && isMenuOpenStore)}
-                  onClose={handleMouseLeaveStore}
+                  open={Boolean(anchorElCategory && isMenuOpenCategory)}
+                  onClose={handleMouseLeaveCategory}
                   MenuListProps={{
                     onMouseEnter: () => setIsMenuOpen(true),
-                    onMouseLeave: handleMouseLeaveStore,
+                    onMouseLeave: handleMouseLeaveCategory,
                   }}
                   anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                   transformOrigin={{ vertical: "top", horizontal: "center" }}
                   className="p-2 w-full flex justify-center items-center "
                   PaperProps={{
                     className:
-                      " border   border-darkGreen shadow-lg  mt-5 mx-auto flex ml-[8%]   rounded-lg w-[76%]",
+                      " border   border-darkGreen shadow-lg  mt-5 mx-auto flex ml-[-13%]   rounded-lg w-[76%]",
                     sx: {
                       ul: {
                         width: "100%", // Ensures the ul takes the full width
@@ -945,8 +968,8 @@ const Navbar = () => {
                     },
                   }}
                 >
-                  <div className="w-[100%]  h-auto p-5   flex flex-row  justify-between items-start">
-                    <div className=" w-[35%] flex flex-row justify-between items-center gap-4 ">
+                  <div className="w-[100%] bg-offwhite  h-auto    flex flex-row  justify-between items-start">
+                    <div className=" w-[55%] bg-white  p-5 flex flex-row justify-between items-center gap-4 ">
                       <div className="w-[50%]">
                         <MenuItem className="hover:bg-white py-1 pl-0  text-black font-semibold">
                           Beverages
@@ -990,46 +1013,10 @@ const Navbar = () => {
                       </div>
                     </div>
 
-                    <div className=" w-[65%] my-auto flex flex-row gap-8 justify-end items-center ">
-                      <div className="relative ">
-                        <div className="absolute top-8 left-5 bg-white text-black text-xs font-normal px-2 py-1">
-                          OFFER
-                        </div>
-                        <div className=" bottom-4 left-5 text-left absolute">
-                          <p className="text-xl font-extrabold text-black">
-                            Flat 80% <br /> OFF
-                          </p>
-                        </div>
-                        <div className=" flex justify-center">
-                          <Image
-                            src={bannerImageTwo}
-                            alt="banner-image"
-                            className="rounded-xl object-cover"
-                          />
-                        </div>
-                      </div>
+                    <div className=" w-[45%] p-5 h-full my-auto flex flex-row gap-8 justify-end items-center bg-offwhite">
+                      
 
-                      <div className="relative ">
-                        <div className="absolute top-8 left-5 bg-white text-black text-xs font-normal px-2 py-1">
-                          Special Offer
-                        </div>
-                        <div className=" bottom-4 left-5 text-left absolute">
-                          <p className="text-xl font-extrabold text-black">
-                            Up to 30% OFF
-                            <br />{" "}
-                            <span className="font-semibold text-lg text-gray-600">
-                              New Arrivals
-                            </span>
-                          </p>
-                        </div>
-                        <div className=" flex justify-center">
-                          <Image
-                            src={bannerImage}
-                            alt="banner-image"
-                            className="rounded-xl object-cover"
-                          />
-                        </div>
-                      </div>
+                      fgggg
                     </div>
                   </div>
                 </Menu>
